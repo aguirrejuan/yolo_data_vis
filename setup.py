@@ -15,7 +15,8 @@ setup(
     download_url='',
 
     entry_points={'console_scripts': [
-        'yolo_data_vis=yolo_data_vis.main:main',
+        'yolo_data_vis=yolo_data_vis.vis_opencv:main',
+         'yolo_data_vis_jupyter=yolo_data_vis.vis_display:main',
         ]},
     
 

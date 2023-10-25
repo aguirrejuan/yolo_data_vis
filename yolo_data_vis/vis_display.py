@@ -7,6 +7,8 @@ import os
 import ipywidgets as widgets
 from IPython.display import display, Image, clear_output
 from .utils import get_images_labels, draw_bounding_boxes
+from PIL import Image as PILImage
+
 
 def display_images(dir_images, dir_labels):
 
@@ -19,7 +21,7 @@ def display_images(dir_images, dir_labels):
     def display_image(image_index):
         image_path, label_path = image_files[current_image_index]
         image = draw_bounding_boxes(image_path, label_path)
-        return Image(data=image, width=400, height=400)
+        return PILImage.fromarray(image[...,::-1])
 
     # Create buttons for navigating through images
     prev_button = widgets.Button(description="Previous")
@@ -57,8 +59,6 @@ def display_images(dir_images, dir_labels):
     # Display the buttons and the image output
     display(buttons_layout)
     display(image_output)
-
-
 
 def main():
     arguments = docopt(__doc__)

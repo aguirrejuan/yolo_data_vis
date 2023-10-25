@@ -5,6 +5,7 @@ Usage:
 from docopt import docopt
 import cv2
 from .utils import get_images_labels, draw_bounding_boxes
+import os 
 
 # Function to display images and navigate using arrow keys
 def visualize_images(dir_images, dir_labels):
@@ -13,7 +14,6 @@ def visualize_images(dir_images, dir_labels):
 
     while True:
         image_path, label_path = image_files[current_index]
-        print(os.path.basename(image_path))
         image = draw_bounding_boxes(image_path, label_path)
 
         if image is not None:

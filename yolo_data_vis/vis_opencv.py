@@ -7,6 +7,7 @@ import cv2
 from .utils import get_images_labels, draw_bounding_boxes
 import os 
 
+
 # Function to display images and navigate using arrow keys
 def visualize_images(dir_images, dir_labels):
     image_files = get_images_labels(dir_images, dir_labels)
